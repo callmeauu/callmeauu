@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengelompokan Sampah</title>
+</head>
+<body>
+    <h1>Platform Edukasi Pengelompokan Sampah</h1>
+    <p>Masukkan nama Anda:</p>
+    <input type="text" id="nama">
+    <p>Kamu mau buang sampah apa?</p>
+    <select id="jenisSampah">
+        <option value="organik">Dedaunan</option>
+        <option value="organik">Sisa Sayur dan Buah</option>
+        <option value="organik">Bangkai Hewan</option>
+        <option value="organik">Kotoran Hewan</option>
+        <option value="organik">Sisa Daging</option>
+        <option value="organik">Nasi</option>
+        <option value="anorganik">Sampah Plastik</option>
+        <option value="anorganik">Botol Plastik Bekas Sabun</option>
+        <option value="anorganik">Sampo</option>
+        <option value="anorganik">Odol</option>
+        <option value="anorganik">Sikat Gigi Plastik</option>
+        <option value="anorganik">Botol Kaca</option>
+        <option value="anorganik">Styrofoam</option>
+        <option value="anorganik">Ban Bekas</option>
+        <option value="b3">Baterai Bekas</option>
+        <option value="b3">Pestisida</option>
+        <option value="b3">Obat-obatan Kadaluwarsa</option>
+        <option value="b3">Bahan Kimia Berbahaya</option>
+    </select>
+    <button onclick="cekPengelompokan()">Cek</button>
+    <p id="hasil"></p>
+
+    <script>
+        function cekPengelompokan() {
+            var nama = document.getElementById("nama").value;
+            var jenisSampah = document.getElementById("jenisSampah").value;
+            var tempatSampah;
+            var warnaTong;
+
+            switch (jenisSampah) {
+                case "organik":
+                    tempatSampah = "tempat sampah organik";
+                    warnaTong = "hijau";
+                    break;
+                case "anorganik":
+                    tempatSampah = "tempat sampah anorganik";
+                    warnaTong = "kuning";
+                    break;
+                case "b3":
+                    tempatSampah = "tempat sampah B3";
+                    warnaTong = "merah";
+                    break;
+                default:
+                    tempatSampah = "tempat sampah yang sesuai";
+                    warnaTong = "sesuai";
+            }
+
+            document.getElementById("hasil").innerHTML = "Halo, " + nama + "! Buanglah sampahmu di tong warna " + warnaTong + " yang bertuliskan " + tempatSampah + ".";
+        }
+    </script>
+</body>
+</html>
